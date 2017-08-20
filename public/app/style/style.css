@@ -57,7 +57,7 @@ ul.tag-highlight {
 ul.tag-highlight li {
     list-style:none;
     display: inline;
-    margin-left: 25px;
+    margin-left: 40px;
 }
 
 ul.tag-highlight li:nth-child(1) {
@@ -136,4 +136,8 @@ ul.dropdown-menu a {
 .list-discussion-title a .name {
     font-size: 14px;
     color: #000
+}
+
+.img-user-profile {
+    width: 50px;
 }
