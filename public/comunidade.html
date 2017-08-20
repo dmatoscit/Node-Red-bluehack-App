@@ -59,89 +59,14 @@
 
     <div class="container">
         <div class="row row-offcanvas row-offcanvas-right">
-            <div class="col-12 col-md-8 div-style">
+            <div id="divUserChatList" class="col-12 col-md-8 div-style">
                 <div>
                     <h2>Comunidade</h2>
-                    <p>Que tal começar um papo com outros {{usuarios}} sobre os assuntos abaixo:</p>
+                    <p>Que tal começar um papo com outros Lenguees sobre os assuntos abaixo:</p>
                 </div>
                 <div class="col-md-12 text-center">
-                    <ul class="fa-ul tag-highlight">
-                        <li class="fa-li">RUNNING</li>
-                        <li class="fa-li">U2</li>
-                        <li class="fa-li">LONDRES</li>
-                        <li class="fa-li">ROCK</li>
-                        <li class="fa-li">PROGRAMAÇÃO</li>
+                    <ul id="tagCloud" class="fa-ul tag-highlight">
                     </ul>
-                </div>
-                <div class="row list-discussion-item">
-                    <div class="col-2 col-md-2">
-                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
-                    </div>
-                    <div class="col-10 col-md-10">
-                        <div class="col-12 col-md-12 list-discussion-title">
-                            <a href="#">Compartilhe a sua história conosco!
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-12 list-discussion-info">
-                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row list-discussion-item">
-                    <div class="col-2 col-md-2">
-                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
-                    </div>
-                    <div class="col-10 col-md-10">
-                        <div class="col-12 col-md-12 list-discussion-title">
-                            <a href="#">Compartilhe a sua história conosco!
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-12 list-discussion-info">
-                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row list-discussion-item">
-                    <div class="col-2 col-md-2">
-                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
-                    </div>
-                    <div class="col-10 col-md-10">
-                        <div class="col-12 col-md-12 list-discussion-title">
-                            <a href="#">Compartilhe a sua história conosco!
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-12 list-discussion-info">
-                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row list-discussion-item">
-                    <div class="col-2 col-md-2">
-                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
-                    </div>
-                    <div class="col-10 col-md-10">
-                        <div class="col-12 col-md-12 list-discussion-title">
-                            <a href="#">Compartilhe a sua história conosco!
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-12 list-discussion-info">
-                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="row list-discussion-item">
-                    <div class="col-2 col-md-2">
-                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
-                    </div>
-                    <div class="col-10 col-md-10">
-                        <div class="col-12 col-md-12 list-discussion-title">
-                            <a href="#">Compartilhe a sua história conosco!
-                            </a>
-                        </div>
-                        <div class="col-12 col-md-12 list-discussion-info">
-                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
-                        </div>
-                    </div>
                 </div>
                 <!--/row-->
             </div>
@@ -171,7 +96,7 @@
                             </div>
                             <div class="col-md-9">
                                 <div>Spotify</div>
-                                <div class="small">Que tal deixar os {{usuarios}} verem seu gosto musical?</div>
+                                <div class="small">Que tal deixar os Lenguees verem seu gosto musical?</div>
                             </div>
                         </a>
                         <a href="#" class="list-group-item inactive">
@@ -216,6 +141,31 @@
     </div>
     <!--/.container-->
 
+    <script id="userChatTemplate" type="x-tmpl-mustache">
+     {{#users}}
+        <div class="row list-discussion-item">
+            <div class="col-2 col-md-2">
+                <img src="{{image}}" class="img-circle avatar-discussion"><span class="ring"></span>
+            </div>
+            <div class="col-10 col-md-10">
+                <div class="col-12 col-md-12 list-discussion-title">
+                    <a href="#">
+                        <div class="name">{{name}}</div>
+                        <div>"{{resume}}""</div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-12 list-discussion-info">
+                    <div>
+                        {{info}}
+                    </div>
+                    <div>
+                        Língua Nativa: <img src="{{nativeLaguageImage}}" />   Aprendendo: <img src="{{learnLaguageImage}}" />
+                    </div>
+                </div>
+            </div>
+        </div>
+     {{/users}}
+    </script>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -230,6 +180,9 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/offcanvas.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="js/comunidade.js"></script>    
+    <script src="js/mustache.min.js"></script>    
     <script src="https://use.fontawesome.com/0cf9ca1c8f.js"></script>
 </body>
 

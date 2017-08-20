@@ -33,7 +33,6 @@ body {
 .list-discussion-title {
     font-size: 19px;
     padding: 10px;
-    margin-bottom: 10px;
 }
 
 .list-discussion-info {
@@ -101,7 +100,7 @@ h3.idea {
     color: #8c8c00;
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 960px) {
     .navbar {
         padding-left: 100px;
     }
@@ -115,8 +114,9 @@ h3.idea {
 .navbar-toggleable-md .navbar-nav {
     padding-top: 10px;
 }
+}
 
-.profile-login a.user-name{
+.profile-login a.user-name {
     color: #fff;
     padding-left: 10px;
 }
@@ -131,4 +131,9 @@ ul.dropdown-menu {
 
 ul.dropdown-menu a {
     color: #fff;
+}
+
+.list-discussion-title a .name {
+    font-size: 14px;
+    color: #000
 }
