@@ -20,8 +20,8 @@ function fillUserInterests(userName) {
         dataType: "jsonp",
         success: function (data) {
 
-            $("#imgUser").attr("src", data.infos.image);
-            $("#userName").html(data.infos.name);
+            $("#imgUser").attr("src", data.info.image);
+            $("#userName").html(data.info.name);
 
             var interestsCloud = [];
 
@@ -48,7 +48,8 @@ function fillUserInterests(userName) {
 function fillUsersChatList(data) {
 
     var usersChatList = {
-        users: data.friends
+        users: data.friends,
+		mainUser: data.info.user
     }
 
     var template = $('#userChatTemplate').html();
