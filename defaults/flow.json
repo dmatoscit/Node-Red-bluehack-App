@@ -1,0 +1,942 @@
+[
+    {
+        "id": "dc37efa1.bc028",
+        "type": "tab",
+        "label": "Chat",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "981fafca.4f0a3",
+        "type": "tab",
+        "label": "Orquestrador",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "4b952ddc.64edd4",
+        "type": "subflow",
+        "name": "Image recognition subflow",
+        "info": "",
+        "in": [
+            {
+                "x": 101,
+                "y": 230,
+                "wires": [
+                    {
+                        "id": "92ae80c3.580e4"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 912,
+                "y": 227,
+                "wires": [
+                    {
+                        "id": "8e1ae8cc.f7b378",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "aa91440e.c48628",
+        "type": "subflow",
+        "name": "Instagram API",
+        "info": "",
+        "in": [
+            {
+                "x": 49,
+                "y": 97,
+                "wires": [
+                    {
+                        "id": "31fb05de.b92c9a"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 954,
+                "y": 179,
+                "wires": [
+                    {
+                        "id": "778405.f4e61bfc",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "e0626886.70da68",
+        "type": "subflow",
+        "name": "Spotify API",
+        "info": "",
+        "in": [
+            {
+                "x": 235,
+                "y": 166,
+                "wires": [
+                    {
+                        "id": "2e316b78.fa0ea4"
+                    }
+                ]
+            }
+        ],
+        "out": [
+            {
+                "x": 703,
+                "y": 167,
+                "wires": [
+                    {
+                        "id": "76f4de1c.b6b05",
+                        "port": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "58c14e8f.a3235",
+        "type": "websocket-listener",
+        "z": "",
+        "path": "/ws/message",
+        "wholemsg": "false"
+    },
+    {
+        "id": "da4904e1.16b608",
+        "type": "cloudant",
+        "z": "",
+        "host": "9c2f76c4-60b3-4ad4-a049-737359159e20-bluemix.cloudant.com",
+        "name": ""
+    },
+    {
+        "id": "567bd5b8.7ee57c",
+        "type": "websocket in",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "server": "58c14e8f.a3235",
+        "client": "",
+        "x": 206,
+        "y": 134,
+        "wires": [
+            [
+                "b02a57e3.358978",
+                "3acd714.c3cc48e"
+            ]
+        ]
+    },
+    {
+        "id": "b02a57e3.358978",
+        "type": "function",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "func": "delete msg._session;\nreturn msg;\n\n",
+        "outputs": 1,
+        "x": 427,
+        "y": 185,
+        "wires": [
+            [
+                "1c330e87.e5bbc1"
+            ]
+        ]
+    },
+    {
+        "id": "1c330e87.e5bbc1",
+        "type": "websocket out",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "server": "58c14e8f.a3235",
+        "x": 635,
+        "y": 157,
+        "wires": []
+    },
+    {
+        "id": "1da79322.f75f7d",
+        "type": "http in",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "url": "/message/:messageid/:user",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 270,
+        "y": 393,
+        "wires": [
+            [
+                "444f9f84.79e55"
+            ]
+        ]
+    },
+    {
+        "id": "444f9f84.79e55",
+        "type": "template",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "<!DOCTYPE html>\n<html lang=\"en\">\n\n<head>\n    <meta charset=\"utf-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n    <meta name=\"description\" content=\"\">\n    <meta name=\"author\" content=\"\">\n\n    <title>Off Canvas Template for Bootstrap</title>\n\n    <!-- Bootstrap core CSS -->\n    <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\" integrity=\"sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u\"\n        crossorigin=\"anonymous\">\n\n    <!-- Custom styles for this template -->\n    <meta name=\"chromesniffer\" id=\"chromesniffer_meta\" content=\"{&quot;jQuery&quot;:&quot;3.1.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/parseXML,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-event/ajax,-effects,-effects/animatedSelector,-effects/Tween,-deprecated&quot;,&quot;SPDY&quot;:-1,&quot;Bootstrap&quot;:-1}\">\n\t\n\t<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js\"></script>\n\t\n<style type=\"text/css\">\n        html {\n            overflow-x: hidden;\n        }\n        .chat {\n            height: 100vh;\n            overflow-y: scroll;\n            overflow-x: hidden;\n            outline: none;\n        }\n\n        div.logo {\n            margin-bottom: 30px;\n            text-align: center;\n            padding: 20px 0 20px 0;\n            border-bottom: 1px solid #fff;\n        }\n\n        div.logo span {\n            clear: both;\n        }\n\n\n        .decor-default {\n            background-color: #ffffff;\n        }\n\n        .decor-black {\n            background-color: #000;\n            color: #fff;\n        }\n\n        .chat-users h6 {\n            font-size: 20px;\n            margin: 0 0 20px;\n        }\n\n        .chat-users .user {\n            position: relative;\n            padding: 0 0 0 50px;\n            display: block;\n            cursor: pointer;\n            margin: 0 0 20px;\n        }\n\n        .chat-users .user .avatar {\n            top: 0;\n            left: 0;\n        }\n\n        .chat .avatar {\n            width: 40px;\n            height: 40px;\n            position: absolute;\n        }\n\n        .chat .avatar img {\n            display: block;\n            border-radius: 20px;\n            height: 100%;\n        }\n\n        .chat .avatar .status.off {\n            border: 1px solid #5a5a5a;\n            background: #ffffff;\n        }\n\n        .chat .avatar .status.online {\n            background: #4caf50;\n        }\n\n        .chat .avatar .status.busy {\n            background: #ffc107;\n        }\n\n        .chat .avatar .status.offline {\n            background: #ed4e6e;\n        }\n\n        .chat-users .user .status {\n            bottom: 0;\n            left: 28px;\n        }\n\n        .chat .avatar .status {\n            width: 10px;\n            height: 10px;\n            border-radius: 5px;\n            position: absolute;\n        }\n\n        .chat-users .user .name {\n            font-size: 14px;\n            font-weight: bold;\n            line-height: 20px;\n            white-space: nowrap;\n            overflow: hidden;\n            text-overflow: ellipsis;\n        }\n\n        .chat-users .user .mood {\n            font: 200 14px/20px \"Raleway\", sans-serif;\n            white-space: nowrap;\n            overflow: hidden;\n            text-overflow: ellipsis;\n        }\n        /*****************CHAT BODY *******************/\n\n        .chat-body h6 {\n            font-size: 20px;\n            margin: 0 0 20px;\n        }\n\n        .chat-body .answer.left {\n            padding: 0 0 0 58px;\n            text-align: left;\n            float: left;\n        }\n\n        .chat-body .answer {\n            position: relative;\n            max-width: 600px;\n            overflow: hidden;\n            clear: both;\n        }\n\n        .chat-body .answer.left .avatar {\n            left: 0;\n        }\n\n        .chat-body .answer .avatar {\n            bottom: 36px;\n        }\n\n        .chat .avatar {\n            width: 40px;\n            height: 40px;\n            position: absolute;\n        }\n\n        .chat .avatar img {\n            display: block;\n            border-radius: 20px;\n            height: 100%;\n        }\n\n        .chat-body .answer .name {\n            font-size: 14px;\n            line-height: 36px;\n        }\n\n        .chat-body .answer.left .avatar .status {\n            right: 4px;\n        }\n\n        .chat-body .answer .avatar .status {\n            bottom: 0;\n        }\n\n        .chat-body .answer.left .text {\n            background: #ebebeb;\n            color: #333333;\n            border-radius: 8px 8px 8px 0;\n        }\n\n        .chat-body .answer .text {\n            padding: 12px;\n            font-size: 16px;\n            line-height: 26px;\n            position: relative;\n        }\n\n        .chat-body .answer.left .text:before {\n            left: -30px;\n            border-right-color: #ebebeb;\n            border-right-width: 12px;\n        }\n\n        .chat-body .answer .text:before {\n            content: '';\n            display: block;\n            position: absolute;\n            bottom: 0;\n            border: 18px solid transparent;\n            border-bottom-width: 0;\n        }\n\n        .chat-body .answer.left .time {\n            padding-left: 12px;\n            color: #333333;\n        }\n\n        .chat-body .answer .time {\n            font-size: 16px;\n            line-height: 36px;\n            position: relative;\n            padding-bottom: 1px;\n        }\n        /*RIGHT*/\n\n        .chat-body .answer.right {\n            padding: 0 58px 0 0;\n            text-align: right;\n            float: right;\n        }\n\n        .chat-body .answer.right .avatar {\n            right: 0;\n        }\n\n        .chat-body .answer.right .avatar .status {\n            left: 4px;\n        }\n\n        .chat-body .answer.right .text {\n            background: #7266ba;\n            color: #ffffff;\n            border-radius: 8px 8px 0 8px;\n        }\n\n        .chat-body .answer.right .text:before {\n            right: -30px;\n            border-left-color: #7266ba;\n            border-left-width: 12px;\n        }\n\n        .chat-body .answer.right .time {\n            padding-right: 12px;\n            color: #333333;\n        }\n        /**************ADD FORM ***************/\n\n        .chat-body .answer-add {\n            clear: both;\n            position: fixed;\n            margin: 20px -20px -20px;\n            padding: 20px;\n            background: #46be8a;\n            width: 76%;\n            margin-bottom: 0px;\n        }\n\n        .chat-body .answer-add input {\n            border: none;\n            background: none;\n            display: block;\n            width: 100%;\n            font-size: 16px;\n            line-height: 20px;\n            padding: 0;\n            color: #ffffff;\n        }\n\n        .chat input {\n            -webkit-appearance: none;\n            border-radius: 0;\n        }\n\n        .chat-body .answer-add .answer-btn-1 {\n            background: url(\"http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-40.png\") 50% 50% no-repeat;\n            right: 56px;\n        }\n\n        .chat-body .answer-add .answer-btn {\n            display: block;\n            cursor: pointer;\n            width: 36px;\n            height: 36px;\n            position: absolute;\n            top: 50%;\n            margin-top: -18px;\n        }\n\n        .chat-body .answer-add .answer-btn-2 {\n            background: url(\"http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png\") 50% 50% no-repeat;\n            right: 20px;\n        }\n\n        .chat input::-webkit-input-placeholder {\n            color: #fff;\n        }\n\n        .chat input:-moz-placeholder {\n            /* Firefox 18- */\n            color: #fff;\n        }\n\n        .chat input::-moz-placeholder {\n            /* Firefox 19+ */\n            color: #fff;\n        }\n\n        .chat input:-ms-input-placeholder {\n            color: #fff;\n        }\n\n        .chat input {\n            -webkit-appearance: none;\n            border-radius: 0;\n        }\n\n        .chat-tags {\n            bottom: 60px;\n            position: fixed;\n            width: 100%;\n            margin: 0px -30px 0px;\n            margin-left: -20px;\n            background: #000;\n            color: #fff;\n            padding: 4px 0px 4px 20px;\n        }\n\n        .chat-tags b {\n            color: #46be8a\n        }\n    </style>\n\t\n</head>\n\n<body>\n    <div>\n        <div class=\"row row-offcanvas row-offcanvas-right\">\n            <div class=\"col-sm-3 col-xs-12\">\n                <div class=\"col-inside-lg decor-black chat\">\n                    <div class=\"chat-users\">\n                        <div class=\"logo\">\n                            <img src=\"https://node-red-bluehack-app.mybluemix.net/app/img/logo.png\"><span>chat</span>\n                        </div>\n\t\t\t\t\t\t<div id=\"add-users\">\t\t\t\t\t\t\t\n\t\t\t\t\t\t</div>                        \n                    </div>\n                </div>\n            </div>\n            <div class=\"col-sm-9 col-xs-12 chat\">\n                <div class=\"col-inside-lg decor-default\">\n                    <div class=\"chat-body\" id=\"chat-body\">                        \n\t\t\t\t\t\t<div id=\"chat-cv\">                     \n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\n                        <div class=\"chat-tags\" id=\"chat-tags\">                           \n                        </div>\n                        <div class=\"answer-add\" style=\"bottom: 0;\">\n                            <input id=\"txtSend\" placeholder=\"Write a message\">\n                            <span class=\"answer-btn answer-btn-2\" onclick=\"sendMessage()\"></span>\n                        </div>\n                    </div>\n                </div>\n            </div>\n        </div>\n        \n<script type=\"text/javascript\">\n  var wsUri = \"wss://{{req.headers.host}}/ws/message\";\n  var ws = new WebSocket(wsUri);  \n  var Owner;  \n  var Guest;\n    \n  function createSystemMessage(message) {    \n\t\n\tvar htmlvalor = document.createElement(\"div\");\n\thtmlvalor.className = 'answer left';\t\n\t\n\thtmlvalor.innerHTML = \"<div class='avatar'><img src='https://bootdey.com/img/Content/avatar/avatar1.png' alt='User name'><div class='status offline'></div></div><div class='name'>Alexander Herthic</div><div class='text'>\" + message + \"</div><div class='time'>5 min ago</div>\";\n\t\n    var chat = document.getElementById('chat-cv');\n    chat.appendChild(htmlvalor);\n  }\n  \n  function createUserMessage(sender, message, messageid) {\n      \n    if(messageid != \"{{req.params.messageid}}\") return;\n      \n\tvar htmlvalor = document.createElement(\"div\");\n\t\n\thtmlvalor.className = 'answer left';\n\tvar jsonSender = Guest;\n\tif(sender == \"{{req.params.user}}\")\t{\n\t\thtmlvalor.className = 'answer right';\n\t\tjsonSender = Owner;\n\t}\n\t\t\n\thtmlvalor.innerHTML = \"<div class='avatar'><img src='\" + jsonSender.info.image + \"' alt='\" + jsonSender.info.name + \"'><div class='status offline'></div></div><div class='name'>\" + jsonSender.info.name + \"</div><div class='text'>\" + message + \"</div><div class='time'>5 min ago</div>\";\n\t\n\tvar chat = document.getElementById('chat-cv');\n\tchat.appendChild(htmlvalor);\t\n    \n  }\n\n  ws.onopen = function(ev) {\n\t\n\tvar loginGuest = \"{{req.params.messageid}}\".replace(\"{{req.params.user}}\",\"\");\n\t\n\t$.get(\"https://node-red-bluehack-app.mybluemix.net/info?user=\"+ \"{{req.params.user}}\", function(data, status){\n\t\tOwner = data;\n\t});\n\t\n\t$.get(\"https://node-red-bluehack-app.mybluemix.net/info?user=\"+ loginGuest, function(data, status){\n\t\tGuest = data;\n\t\tconsole.log(Guest);\n\t\tvar hashtags = document.createElement(\"span\");\n\t\tvar hashtag = '';\n\t\t$.each( Guest.interest, function( i, val ) {\t\n\t\t\t\n\t\t\t$.each( val.description, function( j, val2 ) {\t\n\t\t\t\thashtag += \"#\" + val2;\n\t\t\t})\n\t\t});\t\n\t\t\n\t\thashtags.innerHTML = \"Que tal conversar sobre estes assuntos:<span> <b>\" + hashtag + \"</b>\";\n\t\n\t\tvar chattags = document.getElementById('chat-tags');\n\t\tchattags.appendChild(hashtags);\t \n\t\t\n\t});\n\t\n\treturn;\n\tcreateSystemMessage('[Connected]');\n  };\n\n  ws.onclose = function(ev) {\n\treturn;\n    createSystemMessage('[Disconnected]');\n  }\n\n  ws.onmessage = function(ev) {\n    var payload = JSON.parse(ev.data);\n    createUserMessage(payload.sender, payload.message,payload.messageid);\n\n    var chat = document.getElementById('chat-cv');\n    chat.scrollTop = chat.scrollHeight;\n  }\n\n  function sendMessage() {\n     var user = \"{{req.params.user}}\";\n    var message = document.getElementById('txtSend');\n\n    var payload = {\n      message: message.value,\n      sender: \"{{req.params.user}}\",\n      ts: (new Date()).getTime(),\n      messageid: \"{{req.params.messageid}}\"\n    };\n\n    ws.send(JSON.stringify(payload));\n    message.value = \"\";\n  };\n  \n\n  function getAvatar()\n  {\t\n    $.get(\"https://node-red-bluehack-app.mybluemix.net/chats?user={{req.params.user}}\", function(data, status){\n\t\t\t\t\n\t\t$.each( data.users, function( i, val ) {\t\t\n\t\t\t\n\t\t\tvar htmlvalor = document.createElement(\"div\");\n\t\t\thtmlvalor.className = 'user';\t\n\t\n\t\t\thtmlvalor.innerHTML = \"<div class='avatar'><img src='\" + val.image + \"' alt='\" + val.name +\"'/><div class='status on'> </div></div><div class='name'>\" + val.name + \"</div><div class='mood'>...</div>\";\n\t\n\t\t\tvar addUser = document.getElementById('add-users');\n\t\t\taddUser.appendChild(htmlvalor);\t\t\t\n\t\t});\n    });\n  };\n  \n  $( document ).ready(function() {\n\t\tgetAvatar();\n\t});\n\n</script>\n\n\n        <!--/.container-->\n\n\n        <!-- Bootstrap core JavaScript\n    ================================================== -->\n        <!-- Placed at the end of the document so the pages load faster -->        \n        <script>\n            window.jQuery || document.write('<script src=\"../../assets/js/vendor/jquery.min.js\"><\\/script>')\n        </script>\n        <script src=\"https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js\" integrity=\"sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb\"\n            crossorigin=\"anonymous\"></script>\n        <script src=\"https://use.fontawesome.com/0cf9ca1c8f.js\"></script>\n\n\n</body>\n\n</html>",
+        "x": 482,
+        "y": 393,
+        "wires": [
+            [
+                "88f87849.eb4bf8"
+            ]
+        ]
+    },
+    {
+        "id": "88f87849.eb4bf8",
+        "type": "http response",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "x": 625,
+        "y": 393,
+        "wires": []
+    },
+    {
+        "id": "b936ad24.5955",
+        "type": "visual-recognition-v3",
+        "z": "4b952ddc.64edd4",
+        "name": "Recognize Image",
+        "apikey": "41d1932f3c952efef043bac39c450d83519b2d88",
+        "image-feature": "classifyImage",
+        "lang": "en",
+        "x": 435.5,
+        "y": 230,
+        "wires": [
+            [
+                "8e1ae8cc.f7b378"
+            ]
+        ]
+    },
+    {
+        "id": "92ae80c3.580e4",
+        "type": "change",
+        "z": "4b952ddc.64edd4",
+        "name": "Extract infos",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.text",
+                "pt": "msg",
+                "to": "text",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.location",
+                "pt": "msg",
+                "to": "location",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.imageurl",
+                "pt": "msg",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 248,
+        "y": 228,
+        "wires": [
+            [
+                "b936ad24.5955"
+            ]
+        ]
+    },
+    {
+        "id": "8e1ae8cc.f7b378",
+        "type": "function",
+        "z": "4b952ddc.64edd4",
+        "name": "Extract relevants data",
+        "func": "var data = msg.result.images[0].classifiers[0].classes;\nvar relevantData = [];\n\nfor (i = 0; i < data.length; i++) {\n    if(data[i].score > 0.70) {\n        relevantData.push(data[i]);\n    }\n}\n\nmsg.payload = {\n    \"classifiers\" : relevantData,\n    \"text\" : msg.text,\n    \"location\" : msg.location\n};\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 653,
+        "y": 228,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "31fb05de.b92c9a",
+        "type": "http request",
+        "z": "aa91440e.c48628",
+        "name": "Send request to Instagram API",
+        "method": "GET",
+        "ret": "obj",
+        "url": "https://api.instagram.com/v1/users/self/media/recent/?access_token={{{keys.instagram}}}&count=2",
+        "tls": "",
+        "x": 230,
+        "y": 96,
+        "wires": [
+            [
+                "98c7aa18.4c8758"
+            ]
+        ]
+    },
+    {
+        "id": "98c7aa18.4c8758",
+        "type": "function",
+        "z": "aa91440e.c48628",
+        "name": "Extract photos urls, text and locations",
+        "func": "data = msg.payload.data;\n\nphotos = [];\n\n\nfor (i = 0; i < data.length; i++) {\n    text = \"\";\n    if ( data[i].caption !== null) {\n        text = data[i].caption.text;\n    }\n    if (data[i].type == \"image\") {\n        photos.push({\n            \"imageurl\" : data[i].images.standard_resolution.url,\n            \"text\" : text,\n            \"location\" : data[i].location\n        });    \n    }\n}\n\nmsg.payload = photos;\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 332.5,
+        "y": 274,
+        "wires": [
+            [
+                "17d22934.90ee57"
+            ]
+        ]
+    },
+    {
+        "id": "134d1b26.e74225",
+        "type": "subflow:4b952ddc.64edd4",
+        "z": "aa91440e.c48628",
+        "name": "",
+        "x": 538,
+        "y": 89,
+        "wires": [
+            [
+                "17d22934.90ee57"
+            ]
+        ]
+    },
+    {
+        "id": "17d22934.90ee57",
+        "type": "Parallel Iterator",
+        "z": "aa91440e.c48628",
+        "name": "Iterator photos",
+        "property": "payload",
+        "saveOutput": 1,
+        "recursive": 0,
+        "storeId": 0,
+        "x": 542,
+        "y": 180,
+        "wires": [
+            [
+                "134d1b26.e74225"
+            ],
+            [
+                "778405.f4e61bfc"
+            ]
+        ]
+    },
+    {
+        "id": "778405.f4e61bfc",
+        "type": "function",
+        "z": "aa91440e.c48628",
+        "name": "Random Intention",
+        "func": "var data = msg.payload;\nvar descriptions = [];\nfor (i = 0; i < 3; i++) {   \n    var randomPhoto = Math.floor(Math.random() * data.length);\n    while (data[randomPhoto].classifiers.length <= 0) {\n        randomPhoto = Math.floor(Math.random() * data.length);\n    }\n    var randomClass = Math.floor(Math.random() * data[randomPhoto].classifiers.length);\n    var description = data[randomPhoto].classifiers[randomClass].class;\n    if (description) {\n           descriptions.push(description);\n    }\n    \n}\n\nmsg.payload = {     \n            \"type\": \"intention\",\n            \"description\": descriptions\n};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 788,
+        "y": 182,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e316b78.fa0ea4",
+        "type": "http request",
+        "z": "e0626886.70da68",
+        "name": "Send request to Spotify API",
+        "method": "GET",
+        "ret": "obj",
+        "url": "https://node-spotify-interests.mybluemix.net/api/interests/{{{keys.spotify}}}",
+        "tls": "",
+        "x": 396,
+        "y": 221,
+        "wires": [
+            [
+                "76f4de1c.b6b05"
+            ]
+        ]
+    },
+    {
+        "id": "3e178a23.04cec6",
+        "type": "http in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "url": "/info",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 91,
+        "y": 61,
+        "wires": [
+            [
+                "9548a7af.1d11c8"
+            ]
+        ]
+    },
+    {
+        "id": "c571607d.7a971",
+        "type": "cloudant in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "search": "_id_",
+        "design": "",
+        "index": "",
+        "x": 434,
+        "y": 61,
+        "wires": [
+            [
+                "93f197d.4944968"
+            ]
+        ]
+    },
+    {
+        "id": "9548a7af.1d11c8",
+        "type": "function",
+        "z": "981fafca.4f0a3",
+        "name": "Parse user",
+        "func": "msg.payload = \"profile/\" + msg.payload.user;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 253,
+        "y": 61,
+        "wires": [
+            [
+                "c571607d.7a971"
+            ]
+        ]
+    },
+    {
+        "id": "93f197d.4944968",
+        "type": "http response",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 616,
+        "y": 65,
+        "wires": []
+    },
+    {
+        "id": "76f4de1c.b6b05",
+        "type": "function",
+        "z": "e0626886.70da68",
+        "name": "Parse array",
+        "func": "data = msg.payload;\n\nfor (i = 0; i < data.length; i++) {\n    data[i].description = data[i].description.split(\",\");\n}\nmsg.payload = data;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 586,
+        "y": 150,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5b389e61.7e519",
+        "type": "http in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "url": "/users",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 484,
+        "wires": [
+            [
+                "31e96074.01f2f"
+            ]
+        ]
+    },
+    {
+        "id": "31e96074.01f2f",
+        "type": "cloudant in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 290,
+        "y": 481,
+        "wires": [
+            [
+                "e555382b.1caae8"
+            ]
+        ]
+    },
+    {
+        "id": "e555382b.1caae8",
+        "type": "function",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "func": "data = msg.payload;\nresult = []\nfor (i = 0; i < data.length; i++) {\n    if (data[i]._id.indexOf(\"profile\") >= 0) {\n        result.push(data[i]);\n    }\n}\n\nmsg.payload = result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 499,
+        "y": 481,
+        "wires": [
+            [
+                "c796424f.0acc"
+            ]
+        ]
+    },
+    {
+        "id": "c796424f.0acc",
+        "type": "http response",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 735,
+        "y": 487,
+        "wires": []
+    },
+    {
+        "id": "c20e63be.6bd9",
+        "type": "http in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "url": "/chats",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 93,
+        "y": 569,
+        "wires": [
+            [
+                "5e396ac4.ce4214"
+            ]
+        ]
+    },
+    {
+        "id": "5e396ac4.ce4214",
+        "type": "function",
+        "z": "981fafca.4f0a3",
+        "name": "Parse user",
+        "func": "msg.payload = \"chats/\" + msg.payload.user;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 278,
+        "y": 572,
+        "wires": [
+            [
+                "bbd6a83b.89a948"
+            ]
+        ]
+    },
+    {
+        "id": "bbd6a83b.89a948",
+        "type": "cloudant in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "search": "_id_",
+        "design": "",
+        "index": "",
+        "x": 487,
+        "y": 562,
+        "wires": [
+            [
+                "89f4f359.780b9"
+            ]
+        ]
+    },
+    {
+        "id": "89f4f359.780b9",
+        "type": "http response",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 712,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f88e0dc8.5b1f6",
+        "type": "function",
+        "z": "dc37efa1.bc028",
+        "name": "Get Chat",
+        "func": "msg.allMessage = msg.payload;\nmsg.payload = \"messages/\" + msg.payload.messageid;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 442,
+        "y": 293,
+        "wires": [
+            [
+                "c616ca8e.581a18"
+            ]
+        ]
+    },
+    {
+        "id": "3acd714.c3cc48e",
+        "type": "json",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "pretty": false,
+        "x": 319,
+        "y": 294,
+        "wires": [
+            [
+                "f88e0dc8.5b1f6"
+            ]
+        ]
+    },
+    {
+        "id": "c616ca8e.581a18",
+        "type": "cloudant in",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "search": "_id_",
+        "design": "",
+        "index": "",
+        "x": 610,
+        "y": 297,
+        "wires": [
+            [
+                "3e029d17.aba452"
+            ]
+        ]
+    },
+    {
+        "id": "3e029d17.aba452",
+        "type": "function",
+        "z": "dc37efa1.bc028",
+        "name": "Save msg",
+        "func": "msg.payload.latest_messages.push(\n    {\n        \"date\":msg.allMessage.ts,\n        \"sender\":msg.allMessage.sender,\n        \"message\": msg.allMessage.message\n    }\n        \n);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 786,
+        "y": 292,
+        "wires": [
+            [
+                "1b13d14.b6ff12f"
+            ]
+        ]
+    },
+    {
+        "id": "1b13d14.b6ff12f",
+        "type": "cloudant out",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "payonly": true,
+        "operation": "insert",
+        "x": 947,
+        "y": 293,
+        "wires": []
+    },
+    {
+        "id": "a664fc3c.7e9ae",
+        "type": "http in",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "url": "/messages/historic/:users",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 168,
+        "y": 476,
+        "wires": [
+            [
+                "60394c53.239e64"
+            ]
+        ]
+    },
+    {
+        "id": "c0d8c926.f16998",
+        "type": "http response",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 878,
+        "y": 478,
+        "wires": []
+    },
+    {
+        "id": "b7267ebf.64e98",
+        "type": "cloudant in",
+        "z": "dc37efa1.bc028",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "search": "_id_",
+        "design": "",
+        "index": "",
+        "x": 627,
+        "y": 479,
+        "wires": [
+            [
+                "c0d8c926.f16998"
+            ]
+        ]
+    },
+    {
+        "id": "60394c53.239e64",
+        "type": "function",
+        "z": "dc37efa1.bc028",
+        "name": "Extract user",
+        "func": "msg.payload = \"messages/\" + msg.req.params.users\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 408,
+        "y": 479,
+        "wires": [
+            [
+                "b7267ebf.64e98"
+            ]
+        ]
+    },
+    {
+        "id": "1fbd9507.ca4d9b",
+        "type": "function",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "func": "data = msg.payload;\nresult = []\nfor (i = 0; i < data.length; i++) {\n    if (data[i]._id.indexOf(\"profile\") >= 0) {\n        result.push(data[i]);\n    }\n}\n\nmsg.payload = result;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 441,
+        "y": 327,
+        "wires": [
+            [
+                "41b1c455.f357dc"
+            ]
+        ]
+    },
+    {
+        "id": "8b8a5ed9.d316f",
+        "type": "cloudant in",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "search": "_all_",
+        "design": "",
+        "index": "",
+        "x": 289,
+        "y": 362,
+        "wires": [
+            [
+                "1fbd9507.ca4d9b"
+            ]
+        ]
+    },
+    {
+        "id": "f20bf45.855ea08",
+        "type": "inject",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "repeat": "54000",
+        "crontab": "",
+        "once": true,
+        "x": 100,
+        "y": 365,
+        "wires": [
+            [
+                "8b8a5ed9.d316f"
+            ]
+        ]
+    },
+    {
+        "id": "4f53fa9c.ff6b74",
+        "type": "change",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload.keys.instagram",
+                "pt": "msg",
+                "to": "keys.instagram",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.keys.spotify",
+                "pt": "msg",
+                "to": "keys.spotify",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.friends",
+                "pt": "msg",
+                "to": "friends",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload.infos",
+                "pt": "msg",
+                "to": "info",
+                "tot": "msg"
+            },
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "lastLine",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 613,
+        "y": 215,
+        "wires": [
+            [
+                "3fea45f4.76cbda"
+            ]
+        ]
+    },
+    {
+        "id": "3fea45f4.76cbda",
+        "type": "subflow:aa91440e.c48628",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "x": 785,
+        "y": 139,
+        "wires": [
+            [
+                "59e1d433.5774ac"
+            ]
+        ]
+    },
+    {
+        "id": "59e1d433.5774ac",
+        "type": "change",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "instagram",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 846,
+        "y": 216,
+        "wires": [
+            [
+                "347a61c7.9e7d8e"
+            ]
+        ]
+    },
+    {
+        "id": "347a61c7.9e7d8e",
+        "type": "subflow:e0626886.70da68",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "x": 983.5,
+        "y": 139,
+        "wires": [
+            [
+                "890b2861.ac07f8"
+            ]
+        ]
+    },
+    {
+        "id": "890b2861.ac07f8",
+        "type": "function",
+        "z": "981fafca.4f0a3",
+        "name": "Join social media",
+        "func": "msg.payload.push(msg.instagram);\n\ninterest = msg.payload;\n\nmsg.payload = {\n    \"info\":msg.info,\n    \"interest\":interest,\n    \"friends\":msg.friends\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1110,
+        "y": 219,
+        "wires": [
+            [
+                "a1a98b9c.d5ced8"
+            ]
+        ]
+    },
+    {
+        "id": "a1a98b9c.d5ced8",
+        "type": "function",
+        "z": "981fafca.4f0a3",
+        "name": "Save last interests",
+        "func": "lastLine = msg.lastLine;\nlastLine.infos = msg.info;\nlastLine.keys = msg.keys;\nlastLine.friends = msg.friends;\nlastLine.interest = msg.payload.interest;\n\nmsg.payload = lastLine;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 1039,
+        "y": 315,
+        "wires": [
+            [
+                "ea835e7.3ad70a"
+            ]
+        ]
+    },
+    {
+        "id": "ea835e7.3ad70a",
+        "type": "cloudant out",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "cloudant": "da4904e1.16b608",
+        "database": "red-bluehack-app",
+        "service": "Node-Red-bluehack-App-cloudantNoSQLDB",
+        "payonly": true,
+        "operation": "insert",
+        "x": 1255,
+        "y": 317,
+        "wires": []
+    },
+    {
+        "id": "41b1c455.f357dc",
+        "type": "Serial Iterator",
+        "z": "981fafca.4f0a3",
+        "name": "",
+        "property": "payload",
+        "inputFlow": "input",
+        "saveOutput": 0,
+        "recursive": 0,
+        "storeId": 0,
+        "x": 448,
+        "y": 217,
+        "wires": [
+            [
+                "4f53fa9c.ff6b74"
+            ],
+            []
+        ]
+    }
+]
