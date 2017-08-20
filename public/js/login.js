@@ -1,6 +1,4 @@
 $('#btnLogin').on('click', function() {
-
-    //TODO: Lógica de autenticação
-    window.location = 'comunidade.html';
-
+    var url = "comunidade.html?user=" + encodeURIComponent($("#txtUsuario").val());
+    window.location.href = url;
 });

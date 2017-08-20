@@ -2,53 +2,61 @@
 $(function () {
 
     //TODO: trazer informações do banco
-    var user = {
-        name: 'Francisco',
-        email: 'fcarlos@ciandt.com',
-    }
+    var userName = getParameterByName("user");
 
-    fillUserInterests();
-    fillUsersChatList();
+    if (!userName)
+        window.location.href = 'login.html';
+
+    fillUserInterests(userName);
 });
 
 
 // FUNCTIONS
 
-function fillUserInterests() {
+function fillUserInterests(userName) {
 
-    //TODO: trazer do banco
-    var interests = [
-        {
-            type: 'interests',
-            description: 'RUNNING, LONDRES, PROGRAMAÇÃO'
+    $.ajax({
+        url: 'https://node-red-bluehack-app.mybluemix.net/info?user=' + userName,
+        dataType: "jsonp",
+        success: function (data) {
+
+            $("#imgUser").attr("src", data.info.image);
+            $("#userName").html(data.info.name);
+
+            var interestsCloud = [];
+
+            data.interest.forEach(function (interest) {
+                interestsCloud = interestsCloud.concat(interest.description);
+            }, this);
+
+            var items = [];
+
+            $.each(interestsCloud, function (id, option) {
+                items.push('<li class="fa-li">' + option + '</li>');
+            });
+
+            $('#tagCloud').html(items.join(''));
+
+            fillUsersChatList();
         },
-        {
-            type: 'music-genre',
-            description: 'POP, ROCK, HIP-HOP',
-        },
-        {
-            type: 'music-artists',
-            description: 'U2, ENGENHEIROS DO HAWAII, DJAVAN'
+        error: function (request, error){
+            window.location.href = 'login.html'
         }
-    ]
-
-    var interestsCloud = [];
-
-    interests.forEach(function (interest) {
-        interestsCloud = interestsCloud.concat(interest.description.split(','));
-    }, this);
-
-    var items = [];
-
-    $.each(interestsCloud, function (id, option) {
-        items.push('<li class="fa-li">' + option + '</li>');
     });
-
-    $('#tagCloud').html(items.join(''));
 }
 
 function fillUsersChatList() {
-    //TODO: trazer do banco
+    
+    //  $.ajax({
+    //     url: 'https://node-red-bluehack-app.mybluemix.net/users',
+    //     success: function (data) {
+    //         console.log(data);
+    //     },
+    //     error: function (request, error){
+    //         window.location.href = 'login.html'
+    //     }
+    // });
+
     var usersChatList = {
         users: [
             {
@@ -84,4 +92,15 @@ function fillUsersChatList() {
     var rendered = Mustache.render(template, usersChatList);
 
     $('#divUserChatList').append(rendered);
+}
+
+//private
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
