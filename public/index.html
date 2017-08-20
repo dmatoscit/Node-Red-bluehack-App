@@ -1,277 +1,236 @@
 <!DOCTYPE html>
 <!-- saved from url=(0035)https://www.duolingo.com/discussion -->
-<html class="" dir="ltr">
-   <!--<![endif]-->
-   <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <script src="./files/cb=gapi.loaded_0" async=""></script><script type="text/javascript" async="" src="./files/client-plusone.js.download" gapi_processed="true"></script>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="google" value="notranslate">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/aiahmijlpehemcpleichkcokhegllfjl">
-      <title></title>
-      <link rel="stylesheet" href="./files/2ff50d4b3cae4f562e31fea17fc9187c_mv_43f627d0e10e45244fcdcd1345f5b2b2_0.min.css">
-      <link rel="stylesheet" href="./files/2ff50d4b3cae4f562e31fea17fc9187c_mv_43f627d0e10e45244fcdcd1345f5b2b2_1.min.css">
-      <link rel="stylesheet" href="./files/2ff50d4b3cae4f562e31fea17fc9187c_mv_43f627d0e10e45244fcdcd1345f5b2b2_2.min.css">      
-      <script src="./files/1735692093320310" async=""></script>
-      <style type="text/css"></style>
-   </head>
-   <body class="global-pt compact-enabled" lang="pt" style="overflow: auto;">
-      <div id="fb-root" class=" fb_reset">
-         <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
-            <div><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./files/XBwzv5Yrm_1.html" style="border: none;"></iframe></div>
-         </div>
-         <div style="position: absolute; top: -10000px; height: 0px; width: 0px;">
-            <div></div>
-         </div>
-      </div>
-      <div id="topbar">
-         <header class="topbar   topbar-blue">
-            <div class="container">                              
-               <div class="topbar-right" style="font-size: 15px;">
-                  <div class="dropdown topbar-language">
-                     <div data-toggle="dropdown" class=""><span class="flag flag-svg-small flag-en"></span></div>
-                  </div>
-                  <div class="dropdown topbar-username">
-                     <div data-toggle="dropdown" class=""><a href="#" rel="nofollow" class="avatar avatar-small " title="Francisco"><img src="http://duolingo-images.s3.amazonaws.com/avatars/281464630/NJsH7DN1Yd/medium"><span class="ring"></span></a> <span class="name">Francisco</span><span class="icon icon-arrow-down-white"></span></div>
-                  </div>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Off Canvas Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="style/bootstrap.min.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="style/offcanvas.css" rel="stylesheet">
+    <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;3.1.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/parseXML,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-event/ajax,-effects,-effects/animatedSelector,-effects/Tween,-deprecated&quot;,&quot;SPDY&quot;:-1,&quot;Bootstrap&quot;:-1}">
+    <script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse topbar-blue">
+         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+            aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <a class="navbar-brand" href="#"><img src="img/logo.png"></a>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Comunidade</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Conversas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Aprendizado</a>
+                </li>
+            </ul>
+            <div class="profile-login">
+                <ul class="nav">
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle user-name" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="http://duolingo-images.s3.amazonaws.com/avatars/281464630/NJsH7DN1Yd/medium" class="img-circle" /> Francisco
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="#">Configurações</a>
+                        <a class="dropdown-item" href="#">Sair</a>
+                    </div>
+                </li>
+                </ul>
+              </div>
+        </div> 
+    </nav>
+
+    <div class="container">
+        <div class="row row-offcanvas row-offcanvas-right">
+            <div class="col-12 col-md-8 div-style">
+                <div>
+                    <h2>Comunidade</h2>
+                    <p>Que tal começar um papo com outros {{usuarios}} sobre os assuntos abaixo:</p>
+                </div>
+                <div class="col-md-12 text-center">
+                    <ul class="fa-ul tag-highlight">
+                        <li class="fa-li">RUNNING</li>
+                        <li class="fa-li">U2</li>
+                        <li class="fa-li">LONDRES</li>
+                        <li class="fa-li">ROCK</li>
+                        <li class="fa-li">PROGRAMAÇÃO</li>
+                    </ul>
+                </div>
+                <div class="row list-discussion-item">
+                    <div class="col-2 col-md-2">
+                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
+                    </div>
+                    <div class="col-10 col-md-10">
+                        <div class="col-12 col-md-12 list-discussion-title">
+                            <a href="#">Compartilhe a sua história conosco!
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-12 list-discussion-info">
+                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row list-discussion-item">
+                    <div class="col-2 col-md-2">
+                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
+                    </div>
+                    <div class="col-10 col-md-10">
+                        <div class="col-12 col-md-12 list-discussion-title">
+                            <a href="#">Compartilhe a sua história conosco!
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-12 list-discussion-info">
+                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row list-discussion-item">
+                    <div class="col-2 col-md-2">
+                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
+                    </div>
+                    <div class="col-10 col-md-10">
+                        <div class="col-12 col-md-12 list-discussion-title">
+                            <a href="#">Compartilhe a sua história conosco!
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-12 list-discussion-info">
+                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row list-discussion-item">
+                    <div class="col-2 col-md-2">
+                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
+                    </div>
+                    <div class="col-10 col-md-10">
+                        <div class="col-12 col-md-12 list-discussion-title">
+                            <a href="#">Compartilhe a sua história conosco!
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-12 list-discussion-info">
+                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row list-discussion-item">
+                    <div class="col-2 col-md-2">
+                        <img src="img/mulher.png" class="img-circle avatar-discussion"><span class="ring"></span>
+                    </div>
+                    <div class="col-10 col-md-10">
+                        <div class="col-12 col-md-12 list-discussion-title">
+                            <a href="#">Compartilhe a sua história conosco!
+                            </a>
+                        </div>
+                        <div class="col-12 col-md-12 list-discussion-info">
+                            <span>faz 4 semanas por <a href="#">vivisaurus</a> em <a href="">Duolingo </a></span>
+                        </div>
+                    </div>
+                </div>
+                <!--/row-->
             </div>
-			</div>
-         </header>
-      </div>
-      <div id="app" class="comment better-comment">
-         <main class="main-right">
-            <section class="page-main main-right">
-               <span class="comment-rankings">
-				  <h1 class="topic-heading">O que seu comportamente recente </h1>
-				  <ul class="nav-tabs-conectors">
-                     <li data-tab="hot" id="spotify">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Spotify">
-									<img src="./img/spotify-icon-18.png"><span class="ring"></span>
-								</a> 								
-							</div>
-						</div>
-					 </li>
-					 <li data-tab="hot" id="instagram">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Instagram">
-									<img src="./img/instagram3.png"><span class="ring"></span>
-								</a> 								
-							</div>
-						</div>
-					 </li>
-					<li data-tab="hot" id="linkedin">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Linkedin">
-									<img src="./img/linkedinLogo.png"><span class="ring"></span>
-								</a> 								
-							</div>
-						</div>
-					 </li>
-					 <li data-tab="hot" id="facebook">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Facebook">
-									<img src="./img/fb-icon.png"><span class="ring"></span>
-								</a> 								
-							</div>
-						</div>
-					 </li>
-					  <li data-tab="hot" id="twitter">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Twitter">
-									<img src="./img/twitter.png"><span class="ring"></span>
-								</a> 								
-							</div>
-						</div>
-					 </li>
-					 <li data-tab="hot" id="outros">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Outros">
-									<img src="./img/plus.png"><span class="ring"></span>
-								</a> 								
-							</div>
-						</div>
-					 </li>
-                  </ul>
-				  
-				<div style="margin-left:45%">
-					<a href="#" rel="nofollow" class="avatar avatar-small " title="Outros">
-						<img src="http://www.clipartsfree.net/vector/small/czara1_Mixe_arrow_Clipart_Free.png">
-					</a> 
-				</div>				
-				 <ul class="nav-tabs">
-					<div style="display: block;margin: auto;width: 70%;">
-                     <li data-tab="hot" id="spotify">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Outros">
-									<img src="./img/intention.png">
-								</a>
-								<span>running, praia, família</span>
-							</div>
-						</div>
-					 </li>					 		 
-					 <li data-tab="hot" id="spotify">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Genero Musical">
-									<img src="./img/music.png">
-								</a>
-								<span>samba, reggae, rock</span>
-							</div>
-						</div>
-					 </li>					
-					 </div>
-					 <div style="display: block;margin: auto;width: 30%;">
-					  <li data-tab="hot" id="spotify">
-						<div class="dropdown topbar-username">
-							<div data-toggle="dropdown" class="">
-								<a href="#" rel="nofollow" class="avatar avatar-small " title="Bandas">
-									<img src="./img/band.png">
-								</a>
-								<span>IU2, The B-52s</span>
-							</div>
-						</div>
-					 </li>		
-					</div>					 
-                  </ul>		
-				                    
-                  <div class="comment-main">
-                     <div id="hot-tab" class="panel" style="display: block;">
-                        <ul id="comments" class="list-discussions">
-                           <li id="comment-23635055" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/vivisaurus" rel="nofollow" class="avatar avatar-large admin  " data-toggle="tooltip" title="" data-original-title="Admin"><img src="./files/xlarge"><span class="ring"></span><span class="avatar-badge admin"><span class="icon icon-star-white-tiny"></span></span></a> <span class="icon icon-comment-medium ">213</span>
-                              <header class="list-discussion-item-header">
-                                 <div class="sticky-discussion-message">Grudado</div>
-                                 <a href="https://www.duolingo.com/comment/23635055" class="comment"><bdi>Compartilhe a sua história conosco!</bdi></a>
-                              </header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">140</div>
-                                    <button class="btn btn-custom vote-up" id="comment-23635055-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-23635055-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">faz 4 semanas por <a href="https://www.duolingo.com/vivisaurus" class="">vivisaurus</a> em <a href="https://www.duolingo.com/topic/272" class="blue">Duolingo </a></span><span class="compact-footer">faz 4 semanas</span>
-                              </footer>
-                           </li>
-                           <li id="comment-15023067" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/Bruno_de_Brito" rel="nofollow" class="avatar avatar-large  moderator " data-toggle="tooltip" title="" data-original-title="Moderador"><img src="./files/xlarge(1)"><span class="ring"></span><span class="avatar-badge moderator"><span class="icon-shield-white-tiny icon"></span></span></a> <span class="icon icon-comment-medium ">0</span>
-                              <header class="list-discussion-item-header">
-                                 <div class="sticky-discussion-message">Grudado</div>
-                                 <a href="https://www.duolingo.com/comment/15023067" class="comment"><bdi>[Guia] Onde publicar minha discussão ?</bdi></a>
-                              </header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">701</div>
-                                    <button class="btn btn-custom vote-up" id="comment-15023067-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-15023067-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">faz 1 ano por <a href="https://www.duolingo.com/Bruno_de_Brito" class="">Bruno_de_Brito</a> em <a href="https://www.duolingo.com/topic/272" class="blue">Duolingo </a></span><span class="compact-footer">faz 1 ano</span>
-                              </footer>
-                           </li>                                                     
-                           <li id="comment-24048710" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/Willianrll" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(3)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">7</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24048710" class="comment"><bdi>Qual seria o melhor app de inglês?</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">13</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24048710-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24048710-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">2 dias atrás por <a href="https://www.duolingo.com/Willianrll" class="">Willianrll</a> em <a href="https://www.duolingo.com/topic/272" class="blue">Duolingo </a></span><span class="compact-footer">2 dias atrás</span>
-                              </footer>
-                           </li>                           
-                           <li id="comment-24078192" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/MarianaCou070605" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(4)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">3</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24078192" class="comment"><bdi>oi</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">2</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24078192-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24078192-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">2 horas atrás por <a href="https://www.duolingo.com/MarianaCou070605" class="">MarianaCou070605</a> em <a href="https://www.duolingo.com/topic/273" class="blue">Inglês </a></span><span class="compact-footer">2 horas atrás</span>
-                              </footer>
-                           </li>
-                           <li id="comment-24048937" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/AnaAliceX" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(5)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">12</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24048937" class="comment"><bdi>O duolingo é realmente ótimo</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">8</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24048937-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24048937-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">ontem por <a href="https://www.duolingo.com/AnaAliceX" class="">AnaAliceX</a> em <a href="https://www.duolingo.com/topic/272" class="blue">Duolingo </a></span><span class="compact-footer">ontem</span>
-                              </footer>
-                           </li>
-                           <li id="comment-24066411" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/SoarseX" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(6)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">3</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24066411" class="comment"><bdi>Transcrições de video com tradução vs. textos com audio e tradução</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">3</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24066411-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24066411-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">22 horas atrás por <a href="https://www.duolingo.com/SoarseX" class="">SoarseX</a> em <a href="https://www.duolingo.com/topic/273" class="blue">Inglês </a></span><span class="compact-footer">22 horas atrás</span>
-                              </footer>
-                           </li>
-                           <li id="comment-24035420" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/EllenBeneditto" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(7)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">12</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24035420" class="comment"><bdi>A verdade chocante: entenda porque você não precisa ser fluente em inglês</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">15</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24035420-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24035420-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">2 dias atrás por <a href="https://www.duolingo.com/EllenBeneditto" class="">EllenBeneditto</a> em <a href="https://www.duolingo.com/topic/272" class="blue">Duolingo </a></span><span class="compact-footer">2 dias atrás</span>
-                              </footer>
-                           </li>
-                           <li id="comment-24031198" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/TraciTari" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(8)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">63</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24031198" class="comment"><bdi>Eu sou canadense. Aqui eu tento falar português.</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">15</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24031198-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24031198-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">3 dias atrás por <a href="https://www.duolingo.com/TraciTari" class="">TraciTari</a> em <a href="https://www.duolingo.com/topic/273" class="blue">Inglês </a></span><span class="compact-footer">3 dias atrás</span>
-                              </footer>
-                           </li>                           
-                           <li id="comment-24077393" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/DiegoSanto811139" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(10)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">1</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24077393" class="comment"><bdi>Estudar e empenhar</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">1</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24077393-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24077393-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">3 horas atrás por <a href="https://www.duolingo.com/DiegoSanto811139" class="">DiegoSanto811139</a> em <a href="https://www.duolingo.com/topic/272" class="blue">Duolingo </a></span><span class="compact-footer">3 horas atrás</span>
-                              </footer>
-                           </li>                           
-                           <li id="comment-24065808" class="list-discussion-item">
-                              <a href="https://www.duolingo.com/mucasans" rel="nofollow" class="avatar avatar-large   "><img src="./files/xlarge(11)"><span class="ring"></span></a> <span class="icon icon-comment-medium ">0</span>
-                              <header class="list-discussion-item-header"><a href="https://www.duolingo.com/comment/24065808" class="comment"><bdi>Quer praticar inglês comigo?</bdi></a></header>
-                              <footer class="list-discussion-item-footer">
-                                 <div class="vote-module-small">
-                                    <div class="vote-count  ">2</div>
-                                    <button class="btn btn-custom vote-up" id="comment-24065808-upvote"><span class="icon icon-vote-up-small "></span></button><button class="btn btn-custom vote-down" id="comment-24065808-downvote"><span class="icon icon-vote-down-small "></span></button>
-                                 </div>
-                                 <span class="full-footer">23 horas atrás por <a href="https://www.duolingo.com/mucasans" class="">mucasans</a> em <a href="https://www.duolingo.com/topic/273" class="blue">Inglês </a></span><span class="compact-footer">23 horas atrás</span>
-                              </footer>
-                           </li>
-                           <div class="gray-spinner"></div>
-                        </ul>
-                     </div>
-                     <div id="new-tab" class="panel hidden unordered-content" style="display: none;"></div>
-                     <div id="following-tab" class="panel hidden unordered-content" style="display: none;"></div>
-                     <div id="comments" class=""></div>
-                     <i id="no-results" class="hidden">Nenhum resultado encontrado.</i>
-                  </div>
-               </span>
-         </main>
-      </div>
-   </body>
-</html>
+            <!--/span-->
+            <div class="col-12 col-md-4">
+                <div class="col-12 col-md-12 div-style">
+                    <h3 class="idea"><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Dica</h3>
+                    <p>
+                        <b>Conecte suas mídias sociais</b> para encontrar preferências em comum com outros usuários :).
+                    </p>
+                </div>
+                <div class="col-12 col-md-12 div-style" id="sidebar">
+                    <h3>Conexões</h3>
+                    <div class="list-group">
+                        <a href="#" class="list-group-item instagram-color">
+                            <div class="col-md-3">
+                                <i class="fa fa-instagram fa-3x"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                <div>Instagram</div>
+                                <div class="small">Conecte suas preferências baseadas em suas fotos</div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item spotify-color">
+                            <div class="col-md-3">
+                                <i class="fa fa-spotify fa-3x"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                <div>Spotify</div>
+                                <div class="small">Que tal deixar os {{usuarios}} verem seu gosto musical?</div>
+                            </div>
+                        </a>
+                        <a href="#" class="list-group-item inactive">
+                            <div class="col-md-3">
+                                <i class="fa fa-facebook fa-3x"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                <div>Spotify</div>
+                                <div class="small">Conecte suas curtidas, paginas e interesses</div>
+                            </div></a>
+                        <a href="#" class="list-group-item inactive">
+                            <div class="col-md-3">
+                                <i class="fa fa-youtube fa-3x"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                <div>Youtube</div>
+                                <div class="small">Vídeos interessantes em comum? Conecte seu youtube!</div>
+                            </div></a>
+                        </a>
+                        <a href="#" class="list-group-item inactive">
+                            <div class="col-md-3">
+                                <i class="fa fa-sun-o fa-3x"></i> 
+                            </div>
+                            <div class="col-md-9">
+                                <div>Tempo</div>
+                                <div class="small">Pode parecer antigo, mais nada como o tempo para iniciar um assunto :P</div>
+                            </div></a>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!--/span-->
+        </div>
+        <!--/row-->
+
+        <hr>
+
+        <footer>
+            <p>© Company 2017</p>
+        </footer>
+
+    </div>
+    <!--/.container-->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+        crossorigin="anonymous"></script>
+    <script>
+        window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/offcanvas.js"></script>
+    <script src="https://use.fontawesome.com/0cf9ca1c8f.js"></script>
+</body>
+
+</html>s
