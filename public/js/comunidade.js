@@ -20,8 +20,8 @@ function fillUserInterests(userName) {
         dataType: "jsonp",
         success: function (data) {
 
-            $("#imgUser").attr("src", data.info.image);
-            $("#userName").html(data.info.name);
+            $("#imgUser").attr("src", data.infos.image);
+            $("#userName").html(data.infos.name);
 
             var interestsCloud = [];
 

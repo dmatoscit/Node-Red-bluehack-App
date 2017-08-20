@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<!-- saved from url=(0035)https://www.duolingo.com/discussion -->
-<html lang="en">
+<html lang="en" class="fa-events-icons-ready">
 
 <head>
     <meta charset="utf-8">
@@ -11,11 +9,330 @@
     <title>Off Canvas Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="style/bootstrap.min.css" rel="stylesheet">
-    <link href="style/chat.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;3.1.1 -ajax,-ajax/jsonp,-ajax/load,-ajax/parseXML,-ajax/script,-ajax/var/location,-ajax/var/nonce,-ajax/var/rquery,-ajax/xhr,-manipulation/_evalUrl,-event/ajax,-effects,-effects/animatedSelector,-effects/Tween,-deprecated&quot;,&quot;SPDY&quot;:-1,&quot;Bootstrap&quot;:-1}">
+    <meta name="chromesniffer" id="chromesniffer_meta" content="{&quot;jQuery&quot;:&quot;3.2.1&quot;,&quot;Bootstrap&quot;:-1}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <style type="text/css">
+        html {
+            overflow-x: hidden;
+        }
+
+        .chat {
+            height: 100vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            outline: none;
+        }
+
+        div.logo {
+            margin-bottom: 30px;
+            text-align: center;
+            padding: 20px 0 20px 0;
+            border-bottom: 1px solid #fff;
+        }
+
+        div.logo span {
+            clear: both;
+        }
+
+
+        .decor-default {
+            background-color: #ffffff;
+        }
+
+        .decor-black {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .chat-users h6 {
+            font-size: 20px;
+            margin: 0 0 20px;
+        }
+
+        .chat-users .user {
+            position: relative;
+            padding: 0 0 0 50px;
+            display: block;
+            cursor: pointer;
+            margin: 0 0 20px;
+        }
+
+        .chat-users .user .avatar {
+            top: 0;
+            left: 0;
+        }
+
+        .chat .avatar {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+
+        .chat .avatar img {
+            display: block;
+            border-radius: 20px;
+            height: 100%;
+        }
+
+        .chat .avatar .status.off {
+            border: 1px solid #5a5a5a;
+            background: #ffffff;
+        }
+
+        .chat .avatar .status.online {
+            background: #4caf50;
+        }
+
+        .chat .avatar .status.busy {
+            background: #ffc107;
+        }
+
+        .chat .avatar .status.offline {
+            background: #ed4e6e;
+        }
+
+        .chat-users .user .status {
+            bottom: 0;
+            left: 28px;
+        }
+
+        .chat .avatar .status {
+            width: 10px;
+            height: 10px;
+            border-radius: 5px;
+            position: absolute;
+        }
+
+        .chat-users .user .name {
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .chat-users .user .mood {
+            font: 200 14px/20px "Raleway", sans-serif;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        /*****************CHAT BODY *******************/
+
+        .chat-body h6 {
+            font-size: 20px;
+            margin: 0 0 20px;
+        }
+
+        .chat-body .answer.left {
+            padding: 0 0 0 58px;
+            text-align: left;
+            float: left;
+        }
+
+        .chat-body .answer {
+            position: relative;
+            max-width: 600px;
+            overflow: hidden;
+            clear: both;
+        }
+
+        .chat-body .answer.left .avatar {
+            left: 0;
+        }
+
+        .chat-body .answer .avatar {
+            bottom: 36px;
+        }
+
+        .chat .avatar {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+
+        .chat .avatar img {
+            display: block;
+            border-radius: 20px;
+            height: 100%;
+        }
+
+        .chat-body .answer .name {
+            font-size: 14px;
+            line-height: 36px;
+        }
+
+        .chat-body .answer.left .avatar .status {
+            right: 4px;
+        }
+
+        .chat-body .answer .avatar .status {
+            bottom: 0;
+        }
+
+        .chat-body .answer.left .text {
+            background: #ebebeb;
+            color: #333333;
+            border-radius: 8px 8px 8px 0;
+        }
+
+        .chat-body .answer .text {
+            padding: 12px;
+            font-size: 16px;
+            line-height: 26px;
+            position: relative;
+        }
+
+        .chat-body .answer.left .text:before {
+            left: -30px;
+            border-right-color: #ebebeb;
+            border-right-width: 12px;
+        }
+
+        .chat-body .answer .text:before {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            border: 18px solid transparent;
+            border-bottom-width: 0;
+        }
+
+        .chat-body .answer.left .time {
+            padding-left: 12px;
+            color: #333333;
+        }
+
+        .chat-body .answer .time {
+            font-size: 16px;
+            line-height: 36px;
+            position: relative;
+            padding-bottom: 1px;
+        }
+        /*RIGHT*/
+
+        .chat-body .answer.right {
+            padding: 0 58px 0 0;
+            text-align: right;
+            float: right;
+        }
+
+        .chat-body .answer.right .avatar {
+            right: 0;
+        }
+
+        .chat-body .answer.right .avatar .status {
+            left: 4px;
+        }
+
+        .chat-body .answer.right .text {
+            background: #7266ba;
+            color: #ffffff;
+            border-radius: 8px 8px 0 8px;
+        }
+
+        .chat-body .answer.right .text:before {
+            right: -30px;
+            border-left-color: #7266ba;
+            border-left-width: 12px;
+        }
+
+        .chat-body .answer.right .time {
+            padding-right: 12px;
+            color: #333333;
+        }
+        /**************ADD FORM ***************/
+
+        .chat-body .answer-add {
+            clear: both;
+            position: fixed;
+            margin: 20px -20px -20px;
+            padding: 20px;
+            background: #46be8a;
+            width: 76%;
+            margin-bottom: 0px;
+        }
+
+        .chat-body .answer-add input {
+            border: none;
+            background: none;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            line-height: 20px;
+            padding: 0;
+            color: #ffffff;
+        }
+
+        .chat input {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
+
+        .chat-body .answer-add .answer-btn-1 {
+            background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-40.png") 50% 50% no-repeat;
+            right: 56px;
+        }
+
+        .chat-body .answer-add .answer-btn {
+            display: block;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            position: absolute;
+            top: 50%;
+            margin-top: -18px;
+        }
+
+        .chat-body .answer-add .answer-btn-2 {
+            background: url("http://91.234.35.26/iwiki-admin/v1.0.0/admin/img/icon-41.png") 50% 50% no-repeat;
+            right: 20px;
+        }
+
+        .chat input::-webkit-input-placeholder {
+            color: #fff;
+        }
+
+        .chat input:-moz-placeholder {
+            /* Firefox 18- */
+            color: #fff;
+        }
+
+        .chat input::-moz-placeholder {
+            /* Firefox 19+ */
+            color: #fff;
+        }
+
+        .chat input:-ms-input-placeholder {
+            color: #fff;
+        }
+
+        .chat input {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
+
+        .chat-tags {
+            bottom: 60px;
+            position: fixed;
+            width: 100%;
+            margin: 0px -30px 0px;
+            margin-left: -20px;
+            background: #000;
+            color: #fff;
+            padding: 4px 0px 4px 20px;
+        }
+    </style>
+
+    <link href="https://use.fontawesome.com/0cf9ca1c8f.css" media="all" rel="stylesheet">
+    <meta name="chromesniffer" id="chromesniffer_meta">
     <script type="text/javascript" src="chrome-extension://fhhdlnnepfjhlhilgmeepgkhjmhhhjkh/js/detector.js"></script>
 </head>
 
@@ -23,364 +340,192 @@
     <div>
         <div class="row row-offcanvas row-offcanvas-right">
             <div class="col-sm-3 col-xs-12">
-                <div class="col-inside-lg decor-default chat">
+                <div class="col-inside-lg decor-black chat">
                     <div class="chat-users">
-                        <h6>Online</h6>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
+                        <div class="logo">
+                            <img src="img/logo.png"><span>chat</span>
                         </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status online"></div>
+                        <div id="add-users">
+                            <div class="user">
+                                <div class="avatar"><img src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-1/p160x160/12049430_1015388978481264_2388244314253121331_n.jpg?oh=95eb8cb66a8851bbc185bf92f223dda5&amp;oe=5A1644A2"
+                                        alt="Denis">
+                                    <div class="status on"> </div>
+                                </div>
+                                <div class="name">Denis</div>
+                                <div class="mood">...</div>
                             </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User name">
-                                <div class="status busy"></div>
+                            <div class="user">
+                                <div class="avatar"><img src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-1/c0.0.160.160/p160x160/16473350_1621824637844730_924258780537654834_n.jpg?oh=1245f774a74410802e3e160cb4fe3ea9&amp;oe=5A1DD5ED"
+                                        alt="Erick Saito">
+                                    <div class="status on"> </div>
+                                </div>
+                                <div class="name">Erick Saito</div>
+                                <div class="mood">...</div>
                             </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="User name">
-                                <div class="status offline"></div>
+                            <div class="user">
+                                <div class="avatar"><img src="https://scontent-ort2-2.xx.fbcdn.net/v/t1.0-1/c65.35.441.441/s160x160/522379_296377523767132_1463713166_n.jpg?oh=40246e4afc46b6b8c9fd0c0e11ec146b&amp;oe=5A314151"
+                                        alt="Marcio Pinheiro">
+                                    <div class="status on"> </div>
+                                </div>
+                                <div class="name">Marcio Pinheiro</div>
+                                <div class="mood">...</div>
                             </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar4.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar5.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
-                        </div>
-                        <div class="user">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">User name</div>
-                            <div class="mood">User mood</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-sm-9 col-xs-12 chat">
                 <div class="col-inside-lg decor-default">
-                    <div class="chat-body">
-                        <h6>Mini Chat</h6>
-                        <div class="answer left">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status offline"></div>
+                    <div class="chat-body" id="chat-body">
+                        <div id="chat-cv">
+                            <div class="answer left">
+                                <div class="avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                                    <div class="status offline"></div>
+                                </div>
+                                <div class="name">Alexander Herthic</div>
+                                <div class="text">[Connected]</div>
+                                <div class="time">5 min ago</div>
                             </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor
-                                amet, consectetur adiping elit
+                            <div class="answer left">
+                                <div class="avatar"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
+                                    <div class="status offline"></div>
+                                </div>
+                                <div class="name">Alexander Herthic</div>
+                                <div class="text">[Disconnected]</div>
+                                <div class="time">5 min ago</div>
                             </div>
-                            <div class="time">5 min ago</div>
                         </div>
-                        <div class="answer right">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor
-                                amet, consectetur adiping elit
-                            </div>
-                            <div class="time">5 min ago</div>
+                        <div class="chat-tags">
+                           <span>Que tal conversar sobre estes assuntos:<span> <b>#U2 #RUNNING #LONDRES #ROCK</b>
                         </div>
-                        <div class="answer left">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                ...
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer right">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                It is a long established fact that a reader will be. Thanks Mate!
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer right">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                It is a long established fact that a reader will be. Thanks Mate!
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer left">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor
-                                amet, consectetur adiping elit
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer right">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status offline"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor amet, consectetur adipisicing elit Lorem ipsum dolor
-                                amet, consectetur adiping elit
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer left">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status online"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                ...
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer right">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="User name">
-                                <div class="status busy"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                It is a long established fact that a reader will be. Thanks Mate!
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer right">
-                            <div class="avatar">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt="User name">
-                                <div class="status off"></div>
-                            </div>
-                            <div class="name">Alexander Herthic</div>
-                            <div class="text">
-                                It is a long established fact that a reader will be. Thanks Mate!
-                            </div>
-                            <div class="time">5 min ago</div>
-                        </div>
-                        <div class="answer-add">
-                            <input placeholder="Write a message">
-                            <span class="answer-btn answer-btn-1"></span>
-                            <span class="answer-btn answer-btn-2"></span>
+                        <div class="answer-add" style="bottom: 0;">
+                            <input id="txtSend" placeholder="Escreva uma mensagem">
+                            <span class="answer-btn answer-btn-2" onclick="sendMessage()"></span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            var wsUri = "wss://node-red-bluehack-app.mybluemix.net/ws/message";
+            var ws = new WebSocket(wsUri);
+            var Owner;
+            var Guest;
+
+            function createSystemMessage(message) {
+
+                var htmlvalor = document.createElement("div");
+                htmlvalor.className = 'answer left';
+
+                htmlvalor.innerHTML = "<div class='avatar'><img src='https://bootdey.com/img/Content/avatar/avatar1.png' alt='User name'><div class='status offline'></div></div><div class='name'>Alexander Herthic</div><div class='text'>" + message + "</div><div class='time'>5 min ago</div>";
+
+                var chat = document.getElementById('chat-cv');
+                chat.appendChild(htmlvalor);
+            }
+
+            function createUserMessage(sender, message, messageid) {
+
+                if (messageid != "dmatosfcarlos") return;
+
+                var htmlvalor = document.createElement("div");
+
+                htmlvalor.className = 'answer left';
+                var jsonSender = Guest;
+                if (sender == "fcarlos") {
+                    htmlvalor.className = 'answer right';
+                    jsonSender = Owner;
+                }
+
+                htmlvalor.innerHTML = "<div class='avatar'><img src='" + jsonSender.infos.image + "' alt='" + jsonSender.infos.name + "'><div class='status offline'></div></div><div class='name'>" + jsonSender.infos.name + "</div><div class='text'>" + message + "</div><div class='time'>5 min ago</div>";
+
+                var chat = document.getElementById('chat-cv');
+                chat.appendChild(htmlvalor);
+
+            }
+
+            ws.onopen = function (ev) {
+
+                var loginGuest = "dmatosfcarlos".replace("fcarlos", "");
+
+                $.get("https://node-red-bluehack-app.mybluemix.net/info?user=" + "fcarlos", function (data, status) {
+                    Owner = data;
+                });
+
+                $.get("https://node-red-bluehack-app.mybluemix.net/info?user=" + loginGuest, function (data, status) {
+                    Guest = data;
+                });
+
+
+                createSystemMessage('[Connected]');
+            };
+
+            ws.onclose = function (ev) {
+                createSystemMessage('[Disconnected]');
+            }
+
+            ws.onmessage = function (ev) {
+                var payload = JSON.parse(ev.data);
+                createUserMessage(payload.sender, payload.message, payload.messageid);
+
+                var chat = document.getElementById('chat-cv');
+                chat.scrollTop = chat.scrollHeight;
+            }
+
+            function sendMessage() {
+                var user = "fcarlos";
+                var message = document.getElementById('txtSend');
+
+                var payload = {
+                    message: message.value,
+                    sender: "fcarlos",
+                    ts: (new Date()).getTime(),
+                    messageid: "dmatosfcarlos"
+                };
+
+                ws.send(JSON.stringify(payload));
+                message.value = "";
+            };
+
+
+            function getAvatar() {
+                $.get("https://node-red-bluehack-app.mybluemix.net/chats?user=fcarlos", function (data, status) {
+
+                    $.each(data.users, function (i, val) {
+
+                        var htmlvalor = document.createElement("div");
+                        htmlvalor.className = 'user';
+
+                        htmlvalor.innerHTML = "<div class='avatar'><img src='" + val.image + "' alt='" + val.name + "'/><div class='status on'> </div></div><div class='name'>" + val.name + "</div><div class='mood'>...</div>";
+
+                        var addUser = document.getElementById('add-users');
+                        addUser.appendChild(htmlvalor);
+                    });
+                });
+            };
+
+            $(document).ready(function () {
+                getAvatar();
+            });
+
+        </script>
+
+
         <!--/.container-->
 
 
         <!-- Bootstrap core JavaScript
     ================================================== -->
         <!-- Placed at the end of the document so the pages load faster -->
-        <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
-            crossorigin="anonymous"></script>
         <script>
             window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
         </script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
             crossorigin="anonymous"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="js/offcanvas.js"></script>
         <script src="https://use.fontawesome.com/0cf9ca1c8f.js"></script>
+
+
+    </div>
 </body>
 
 </html>
