@@ -37,7 +37,7 @@ function fillUserInterests(userName) {
 
             $('#tagCloud').html(items.join(''));
 
-            fillUsersChatList();
+            fillUsersChatList(data);
         },
         error: function (request, error){
             window.location.href = 'login.html'
@@ -45,45 +45,10 @@ function fillUserInterests(userName) {
     });
 }
 
-function fillUsersChatList() {
-    
-    //  $.ajax({
-    //     url: 'https://node-red-bluehack-app.mybluemix.net/users',
-    //     success: function (data) {
-    //         console.log(data);
-    //     },
-    //     error: function (request, error){
-    //         window.location.href = 'login.html'
-    //     }
-    // });
+function fillUsersChatList(data) {
 
     var usersChatList = {
-        users: [
-            {
-                image: 'img/users/avatar1.png',
-                name: 'Leticia Soares',
-                resume: 'Gosto de animais, cultivo flores e amo minhas novelas',
-                nativeLaguageImage: 'img/pt-br.png',
-                learnLaguageImage: 'img/eua.png'
-                // info: 'Já participou de 4 conversas com mais de 1000 palavras trocadas :o'
-            },
-            {
-                image: 'img/users/avatar2.png',
-                name: 'Andrew Whatson',
-                resume: 'Sports, music, TV, movies, games and history',
-                nativeLaguageImage: 'img/eua.png',
-                learnLaguageImage: 'img/pt-br.png'
-                // info: 'Já participou de mais de 30 conversas :o'
-            },
-            {
-                image: 'img/users/avatar3.png',
-                name: 'Kleber Marcondes',
-                resume: 'Montanhista, aventureiro e paraquedista',
-                nativeLaguageImage: 'img/pt-br.png',
-                learnLaguageImage: 'img/eua.png'
-                // info: 'Se inscreveu recentemente, que tal dar as boas vindas a ele :)'
-            }
-        ]
+        users: data.friends
     }
 
     var template = $('#userChatTemplate').html();
